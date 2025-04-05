@@ -15,7 +15,7 @@ int main(){
         //cout << i;
         for(int j = i + 1; j < num_point; j++){
             //cout << j;
-            if((points[i][0] - points[j][0]) == (points[i][1] - points[j][1])){
+            if(abs(points[i][0] - points[j][0]) == abs(points[i][1] - points[j][1])){
                 max = (abs(points[i][0] - points[j][0]) > max) ? abs(points[i][0] - points[j][0]) : max;
                 //cout << "Found!";
             }
