@@ -1,27 +1,30 @@
 #include <iostream>
-#include <cmath>
+#include <algorithm>
+#include <vector>
+#include <map>
 using namespace std;
 
 int main(){
-    int num_point, x, y;
-    int max = 0;
+    int num_point, x, y, max_p, min_p;
+    int max_d = 0;
     cin >> num_point;
-    int points[num_point][2];
+    map<int, vector<int>> negative_s;
+    map<int, vector<int>> positive_s;
     for(int i = 0; i < num_point; i++){
-        cin >> points[i][0];
-        cin >> points[i][1];
+        cin >> x;
+        cin >> y;
+        negative_s[x - y].push_back(x);
+        positive_s[x + y].push_back(x);
     }
-    for(int i = 0; i < num_point; i++){
-        //cout << i;
-        for(int j = i + 1; j < num_point; j++){
-            //cout << j;
-            x = abs(points[i][0] - points[j][0]);
-            y = abs(points[i][1] - points[j][1]);
-            if(x == y){
-                max = (x > max) ? x : max;
-                //cout << "Found!";
-            }
-        }
+    for(auto it : negative_s){
+        max_p = *max_element(it.second.begin(), it.second.end());
+        min_p = *min_element(it.second.begin(), it.second.end());
+        max_d = max(max_d, (max_p - min_p));
     }
-    cout << max;
+    for(auto it : positive_s){
+        max_p = *max_element(it.second.begin(), it.second.end());
+        min_p = *min_element(it.second.begin(), it.second.end());
+        max_d = max(max_d, (max_p - min_p));
+    }
+    cout << max_d;
 }
