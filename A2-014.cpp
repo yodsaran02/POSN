@@ -51,7 +51,7 @@ int main(){
             temp_c[0] = temp_c[1];
         }
     }  
-    cout << wMax << '\n';
+    //cout << wMax << '\n';
     if(wInName % 2 == 0){
         if(wMax >= 2){
             cout << name2;
