@@ -4,9 +4,9 @@
 using namespace std;
 
 int main(){
-    string shout;
+    string shout,l_shout;
     cin >> shout;
-    transform(shout.begin(), shout.end(), shout.begin(), [](char c){
+    transform(shout.begin(), shout.end(), l_shout.begin(), [](char c){
         return tolower(c);
     });
     int tempU = 0;
@@ -15,11 +15,11 @@ int main(){
     int bpos;
     bool havebuu = false;
     for(int i = 0; i < shout.length(); i++){
-        if(shout[i] == 'b'){ 
+        if(l_shout[i] == 'b'){ 
             if(!haveb){ bpos = i; }
             haveb = true;
             for(int j = 1; j < shout.length()-i; j++){
-                if(shout[i+j] == 'u'){ 
+                if(l_shout[i+j] == 'u'){ 
                     tempU++; 
                     //cout << "A";
                 }else{ j = shout.length()-i; }
