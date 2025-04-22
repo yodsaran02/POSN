@@ -28,7 +28,7 @@ int main(){
             arrt[1] = points[i];
             if(arrt[0] == arrt[1]){ continue; }
             avg = ((arrt[0] + arrt[1]) / 2.0);
-            cout << arrt[0] << " " << arrt[1] << " " << avg << endl;
+            //cout << arrt[0] << " " << arrt[1] << " " << avg << endl;
             for(int j = 0; j < n; j++){
                 if(bridge[j][0] < avg && bridge[j][1] > avg){ countb++; }
             }
