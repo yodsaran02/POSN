@@ -7,13 +7,13 @@ int main(){
     string msg, msg_lower;
     int isValid = 0;
     int maxA = 0;
+    int countA = 0;
     cin >> msg;
     transform(msg.begin(), msg.end(), msg_lower.begin(), [](char c){
         return tolower(c);
     });
     for(int i = 0; i < msg.length(); i++){
         if(msg_lower[i] == 'r'){
-            int countA = 0;
             for(int j = 1; j < msg.length()-i; j++){
                 if(msg_lower[i+j] == 'a'){
                     countA++;
@@ -26,8 +26,9 @@ int main(){
             //if( countA == 0 ){ isValid = false; }
             if( countA > maxA ){ maxA = countA; }
             isValid++;
-            cout << countA << endl;
+            //cout << countA << endl;
             i += countA;
+            countA = 0;
         }else if(msg_lower[i] == 'a' && msg_lower[i-1] != 'r'){
             cout << "no " << (i);
             exit(0);
