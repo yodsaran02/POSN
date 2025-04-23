@@ -14,7 +14,7 @@ int main(){
     });
     for(int i = 0; i < msg.length(); i++){
         if(msg_lower[i] == 'r'){
-            for(int j = 1; j < msg.length()-i; j++){
+            for(int j = 1; j < msg.length()-(i+1); j++){
                 if(msg_lower[i+j] == 'a'){
                     countA++;
                     isValid++;
@@ -38,5 +38,5 @@ int main(){
         }else if(msg_lower[i] == 'b'){ isValid++; }
     }
     if(isValid){ cout << "yes " << maxA << endl; }
-    if(!isValid){ cout << "unknown"; }
+    if(!isValid){ cout << "unknown " << msg.length(); }
 }
