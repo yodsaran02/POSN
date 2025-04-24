@@ -11,5 +11,7 @@ int main(){
         cout << "no";
     }else if(year % 4 == 0){
         cout << "yes";
-    } 
+    }else{
+        cout << "no";
+    }
 }
