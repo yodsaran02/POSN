@@ -23,18 +23,15 @@ int main(){
 			for(int k = -2; k <= 2; k++){
 				if(tempr+j < 0 || tempc+k < 0 || tempr+j >= numr || tempc+k >= numc){
 					continue;
-				}else if(j == 0 && k == 0){
-					continue;
 				}
-				
-				if(abs(j) == 1 || abs(k) == 1){
+				if(abs(j) <= 1 && abs(k) <= 1){
 					if(grid[tempr+j][tempc+k] == 100){
 						continue;
 					}else{
 						if(!grid[tempr+j][tempc+k]){ empty--; }
 						grid[tempr+j][tempc+k] = 60;
 					}
-				}else if(abs(j) == 2 || abs(k) == 2){
+				}else if(abs(j) <= 2 && abs(k) <= 2){
 					if(grid[tempr+j][tempc+k]){
 						continue;
 					}else{
